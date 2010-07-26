@@ -2,15 +2,15 @@
 #
 # er-tester.sh
 # Novembro de 2009
-# Luís Henrique <contato@luishenrique.org>
+# Luis Henrique <contato@luishenrique.org>
 #
-# Script para testar Expressões Regulares
+# Script para testar Expressoes Regulares
 # Destaca os metacaracteres na ER
 # 
 # Obs: o script usa o egrep sem o -x, ou seja,
-# retorna também se não casar exatamente com o padrão 
+# retorna tambem se não casar exatamente com o padrao 
 #
-# Referência em ER: http://aurelio.net/er
+# Referencia em ER: http://aurelio.net/er
 #
 
 # Cores  
@@ -28,7 +28,7 @@ quantif="? '*' + { }"
 ancora="[\b] \\^ \\\$"
 outros="\\\ | ( )"
 
-# Função principal que "highlightêia" a expressão regular
+# Função principal que "highlighteia" a expressao regular
 colorir(){
 
 	# vermelho nos representantes
@@ -53,32 +53,32 @@ colorir(){
 	
 }
 
-# Aí começa a brincadeira :-)
+# main
 
-if [ $# == 2 ] # Verifica se há somente 2 argumentos
+if [ $# == 2 ] # Verifica se tem somente 2 argumentos
 then
-	PATTERN=$1 # o padrão é o primeiro argumento
-	REGEX=$2 # a ER é o segundo argumento
+	PATTERN=$1 # o padrao é o primeiro argumento
+	REGEX=$2 # a ER e' o segundo argumento
 	
 	ER=$REGEX # faz backup da ER original pra nao atrapalhar o egrep
 	
 	colorir;
 
-	#clear	# limpa o console (?)
+	#clear	# limpa o console
 	echo -e "$cI Testador de Expressao Regular $cN\n"
 
 	echo -ne "Regex: $ER\n"
 	echo -n "${cN}Padrao:" ; echo -e "$cB $PATTERN\n"
 	echo -ne "${cN}Resultado: "
 
-	# Verifica se casa e mostra o resultado (ou não)
-	if echo $PATTERN | egrep --color=always $REGEX
+	# Verifica se casa e mostra o resultado
+	if ( echo $PATTERN | egrep --color=always $REGEX )
 	then
 		echo "$cN"
 	else
-		echo -e "${cR}Não casou.\n$cN"
+		echo -e "${cR}Nao casou.\n$cN"
 	fi
 	
 else
-	echo -e "Uso: $0 <padrão> <expressão-regular>\n"
+	echo -e "Uso: $0 <padrao> <expressao-regular>\n"
 fi
