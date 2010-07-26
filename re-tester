@@ -8,7 +8,7 @@
 # Destaca os metacaracteres na ER
 # 
 # Obs: o script usa o egrep sem o -x, ou seja,
-# retorna tambem se não casar exatamente com o padrao 
+# retorna tambem se nao casar exatamente com o padrao 
 #
 # Referencia em ER: http://aurelio.net/er
 #
@@ -28,8 +28,9 @@ quantif="? '*' + { }"
 ancora="[\b] \\^ \\\$"
 outros="\\\ | ( )"
 
-# Função principal que "highlighteia" a expressao regular
-colorir(){
+# Funcao principal que "highlighteia" a expressao regular
+
+re_highlight(){
 
 	# vermelho nos representantes
 	for i in $repres; do
@@ -57,12 +58,12 @@ colorir(){
 
 if [ $# == 2 ] # Verifica se tem somente 2 argumentos
 then
-	PATTERN=$1 # o padrao é o primeiro argumento
+	PATTERN=$1 # o padrao e' o primeiro argumento
 	REGEX=$2 # a ER e' o segundo argumento
 	
 	ER=$REGEX # faz backup da ER original pra nao atrapalhar o egrep
 	
-	colorir;
+	re_highlight;
 
 	#clear	# limpa o console
 	echo -e "$cI Testador de Expressao Regular $cN\n"
