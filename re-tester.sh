@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# er-tester.sh
+# re-tester.sh
 # Novembro de 2009
 # Luis Henrique <contato@luishenrique.org>
 #

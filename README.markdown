@@ -1,6 +1,8 @@
-###Regular Expressions Tester
+###Regular Expression Tester
 
-Usage: $ re-tester <pattern> <regex>
+Usage:
+
+```$ re-tester.sh <pattern> <regex>```
 
 Screenshot:
 
